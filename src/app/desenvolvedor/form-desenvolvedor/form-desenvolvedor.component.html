@@ -1,29 +1,58 @@
 <form #form="ngForm" (ngSubmit)="submete(form)">
   <div col-6>
     <label>Nome</label>
-    <input required maxlength="50" name="nome" [(ngModel)]="value.nome" />
+    <input required maxlength="50" #inputNome="ngModel" name="nome" [(ngModel)]="value.nome" />
+    <span class="error" *ngIf="inputNome.invalid">
+      <span *ngIf="inputNome.errors.required">Campo obrigatório.</span>
+      <span *ngIf="inputNome.errors.maxlength">Informe no maximo {{inputNome.errors.maxlength}} caracteres.</span>
+    </span>
   </div>
 
   <div col-6>
     <label>Cargo</label>
-    <input required maxlength="25" name="cargo" [(ngModel)]="value.cargo" />
+    <input required maxlength="25" #inputCargo="ngModel" name="cargo" [(ngModel)]="value.cargo" />
+    <span class="error" *ngIf="inputCargo.invalid">
+      <span *ngIf="inputCargo.errors.required">Campo obrigatório.</span>
+      <span *ngIf="inputCargo.errors.maxlength">Informe no maximo {{inputCargo.errors.maxlength}} caracteres.</span>
+    </span>
   </div>
 
   <div col-6>
     <label>Especialidades</label>
-    <app-lista-valores required name="especialidades"
+    <app-lista-valores #listaValor="ngModel"
+                       required name="especialidades"
+                       [appMinLengthArray]="5"
                        [(ngModel)]="value.especialidades" >
     </app-lista-valores>
+    <span class="error" *ngIf="listaValor.invalid">
+      <span *ngIf="listaValor.errors.required">Campo obrigatório.</span>
+      <span *ngIf="listaValor.errors.minLengthArray">
+        Informa no mínimo {{listaValor.errors.minLengthArray.valor}} especialidades.
+      </span>
+    </span>
+  </div>
+
+  <div col-6>
+    <label>Data de Admissão</label>
+    <app-select-data required name="dataAdmissao"
+                     #selectDataAdmissao="ngModel"
+                     appDataPassada
+                     [(ngModel)]="value.dataAdmissao" ></app-select-data>
+    <span class="error" *ngIf="selectDataAdmissao.invalid">
+      <span *ngIf="selectDataAdmissao.errors.required">Campo obrigatório.</span>
+      <span *ngIf="selectDataAdmissao.errors.passado">A data informada deve estar no passado.</span>
+    </span>
   </div>
 
   <div col-6>
     <label>Sexo</label>
-    <select required name="sexo" [(ngModel)]="value.sexo" >
-      <option value="">Selecione</option>
-      <option value="0">Masculino</option>
-      <option value="1">Femino</option>
-      <option value="2">Outros</option>
-    </select>
+    <app-select-sexo required name="sexo"
+                     #selectSexo="ngModel"
+                     [(ngModel)]="value.sexo" >
+    </app-select-sexo>
+    <span class="error" *ngIf="selectSexo.invalid">
+      <span *ngIf="selectSexo.errors.required">Campo obrigatório.</span>
+    </span>
   </div>
 
 

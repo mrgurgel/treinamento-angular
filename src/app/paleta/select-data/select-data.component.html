@@ -1,0 +1,9 @@
+<select [disabled]="disabled" name="dia" [(ngModel)]="dia">
+  <option [value]="d" *ngFor="let d of dias" >{{d}}</option>
+</select>
+<select [disabled]="disabled" name="mes" [(ngModel)]="mes" >
+  <option [value]="m" *ngFor="let m of meses" >{{m}}</option>
+</select>
+<select [disabled]="disabled" name="ano" [(ngModel)]="ano" >
+  <option [value]="a" *ngFor="let a of anos" >{{a}}</option>
+</select>

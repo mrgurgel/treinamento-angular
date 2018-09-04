@@ -20,19 +20,20 @@ form div label {
   font-size: 11px;
 }
 
-form div input,
-form div select {
-  display: block;
+form div [ngModel] {
   width: 100%;
   border: 1px solid #999;
 }
 
-form div input.ng-dirty.ng-valid,
-form div select.ng-dirty.ng-valid {
-  border: 1px solid green;
+form div .ng-invalid {
+  border: 1px solid red;
 }
 
-form div input.ng-invalid,
-form div select.ng-invalid {
-  border: 1px solid red;
+form div .error {
+  margin-top: 5px;
+  display: block;
+  border-top: 1px dashed red;
+  color: red;
+  font-size: 13px;
+  width: calc(100% - 10px);
 }
