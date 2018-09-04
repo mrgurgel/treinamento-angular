@@ -1,0 +1,32 @@
+form {
+  width: 100%;
+}
+
+form div[col-6] {
+  float: left;
+  margin: 5px;
+  width: calc(50% - 10px);
+}
+
+form div[col-12] {
+  float: left;
+  margin: 5px;
+  width: calc(100% - 10px);
+}
+
+form div label {
+  font-weight: bold;
+  display: block;
+  font-size: 11px;
+}
+
+form div input,
+form div select {
+  display: block;
+  width: 100%;
+}
+
+form div input.ng-invalid,
+form div select.ng-invalid {
+  border: 1px solid red;
+}

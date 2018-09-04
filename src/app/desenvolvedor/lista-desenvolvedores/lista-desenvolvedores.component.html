@@ -1,20 +1,20 @@
 <table>
 
-  <tr colspan="100%">Desenvolvedores</tr>
+  <tr>
+    <th colspan="100%" class="header">Desenvolvedores</th>
+  </tr>
 
   <tr>
     <th>Nome</th>
     <th>Cargo</th>
-    <th>Especialidades</th>
-    <th>Sexo</th>
+    <th>Qtde. Especialidades</th>
   </tr>
 
   <tr (click)="emiteEvento(desenv)"
       *ngFor="let desenv of values">
     <td>{{desenv.nome}}</td>
     <td>{{desenv.getCargo()}}</td>
-    <td>{{desenv.especialidades | json()}}</td>
-    <td>{{desenv.sexo | sexo}}</td>
+    <td>{{desenv.especialidades.length}}</td>
   </tr>
 
 </table>

@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Desenvolvedor} from '../entity/desenvolvedor.entity';
+import {NgForm, NgModel} from '@angular/forms';
 
 @Component({
   selector: 'app-form-desenvolvedor',
@@ -8,10 +9,44 @@ import {Desenvolvedor} from '../entity/desenvolvedor.entity';
 })
 export class FormDesenvolvedorComponent implements OnInit {
 
-  @Input() value: Desenvolvedor;
+  private _externalValue: Desenvolvedor;
+  private _value: Desenvolvedor;
 
   constructor() { }
 
   ngOnInit() {}
 
+  @Input() set value(value: Desenvolvedor) {
+    this._externalValue = value;
+    this._value = new Desenvolvedor(
+      value.nome,
+      value.cargo,
+      value.especialidades,
+      value.dataAdmissao,
+      value.sexo
+    );
+  }
+
+  get value() {
+    return this._value;
+  }
+
+  submete(form: NgForm) {
+    if (form.valid) {
+
+      this._externalValue.nome = this._value.nome;
+      this._externalValue.cargo = this._value.cargo;
+      this._externalValue.especialidades = this._value.especialidades;
+      this._externalValue.dataAdmissao = this._value.dataAdmissao;
+      this._externalValue.sexo = this._value.sexo;
+
+    }
+  }
+
+  validaSexo(sexo: NgModel, formulario: NgForm) {
+    if(sexo.value != 0 && sexo.value != 1)
+    {
+      console.log("Sexo invalido");
+    }
+  }
 }

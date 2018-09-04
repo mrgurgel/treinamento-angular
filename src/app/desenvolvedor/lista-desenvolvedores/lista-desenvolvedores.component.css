@@ -1,3 +1,21 @@
 table {
-  border: 1px solid black;
+  width: 100%;
+}
+
+table th {
+  background: #e0e0e0;
+}
+
+table th.header {
+  text-align: center;
+  font-size: 18px;
+}
+
+table tr td {
+  background: #efefef;
+  cursor: pointer;
+}
+
+table tr:hover td {
+  background: #ffff99;
 }
