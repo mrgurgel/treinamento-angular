@@ -45,5 +45,7 @@ export class AppComponent {
     console.log(desenvSelecionado);
   }
 
-
+  propriedadeSelecionada(evt) {
+    console.log(evt.nomeAtributo, evt.valor);
+  }
 }

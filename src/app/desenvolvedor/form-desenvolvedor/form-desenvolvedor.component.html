@@ -1,35 +1,25 @@
 <form #form="ngForm" (ngSubmit)="submete(form)">
-
-
   <div col-6>
     <label>Nome</label>
-    <input required name="nome"
-           maxlength="100"
-           [(ngModel)]="value.nome" />
+    <input required maxlength="50" name="nome" [(ngModel)]="value.nome" />
   </div>
 
   <div col-6>
     <label>Cargo</label>
-    <input required name="cargo" [(ngModel)]="value.cargo" />
+    <input required maxlength="25" name="cargo" [(ngModel)]="value.cargo" />
   </div>
 
   <div col-6>
     <label>Especialidades</label>
-    <select name="especialidades" multiple [(ngModel)]="value.especialidades" required>
-      <option value="Java">Java</option>
-      <option value="Angular">Angular</option>
-      <option value="EJB">EJB</option>
-      <option value="JavsScript">JavsScript</option>
-      <option value="C++">C++</option>
-      <option value="PHP">PHP</option>
-      <option value="C#">C#</option>
-      <option value="Python">Python</option>
-    </select>
+    <app-lista-valores required name="especialidades"
+                       [(ngModel)]="value.especialidades" >
+    </app-lista-valores>
   </div>
 
   <div col-6>
     <label>Sexo</label>
-    <select name="sexo" required [(ngModel)]="value.sexo" #sexo="ngModel" (mouseout)="validaSexo(sexo, form)">
+    <select required name="sexo" [(ngModel)]="value.sexo" >
+      <option value="">Selecione</option>
       <option value="0">Masculino</option>
       <option value="1">Femino</option>
       <option value="2">Outros</option>

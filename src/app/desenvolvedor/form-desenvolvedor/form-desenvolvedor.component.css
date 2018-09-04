@@ -24,6 +24,12 @@ form div input,
 form div select {
   display: block;
   width: 100%;
+  border: 1px solid #999;
+}
+
+form div input.ng-dirty.ng-valid,
+form div select.ng-dirty.ng-valid {
+  border: 1px solid green;
 }
 
 form div input.ng-invalid,

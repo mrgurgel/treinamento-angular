@@ -5,11 +5,13 @@ import { ListaDesenvolvedoresComponent } from './lista-desenvolvedores/lista-des
 import { SexoPipe } from './pipes/sexo.pipe';
 import { FormDesenvolvedorComponent } from './form-desenvolvedor/form-desenvolvedor.component';
 import {FormsModule} from '@angular/forms';
+import {PaletaModule} from '../paleta/paleta.module';
 
 @NgModule({
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    PaletaModule
   ],
   declarations: [
     DadosDesenvolvedorComponent,

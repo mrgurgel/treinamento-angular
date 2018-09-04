@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Desenvolvedor} from '../entity/desenvolvedor.entity';
-import {NgForm, NgModel} from '@angular/forms';
+import {NgForm} from '@angular/forms';
 
 @Component({
   selector: 'app-form-desenvolvedor',
@@ -40,13 +40,6 @@ export class FormDesenvolvedorComponent implements OnInit {
       this._externalValue.dataAdmissao = this._value.dataAdmissao;
       this._externalValue.sexo = this._value.sexo;
 
-    }
-  }
-
-  validaSexo(sexo: NgModel, formulario: NgForm) {
-    if(sexo.value != 0 && sexo.value != 1)
-    {
-      console.log("Sexo invalido");
     }
   }
 }
