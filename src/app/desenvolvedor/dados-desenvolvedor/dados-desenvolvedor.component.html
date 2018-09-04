@@ -1,0 +1,20 @@
+Desenvolvedor:
+<h2>{{ value?.nome }}</h2>
+
+Cargo: <b>{{ value?.getCargo() }}</b>
+
+<div>
+  Especialidades:
+  <ul>
+    <li *ngFor="let espec of value?.especialidades" >
+      {{ espec }}
+    </li >
+  </ul>
+</div>
+
+Data de Admissão: {{ value?.dataAdmissao | date:'dd/MM/yyyy' }}
+
+<br/>
+
+Sexo: {{ value?.sexo | sexo | uppercase }}
+
