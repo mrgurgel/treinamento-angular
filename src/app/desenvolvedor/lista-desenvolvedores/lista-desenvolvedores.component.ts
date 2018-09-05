@@ -1,5 +1,6 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Inject, Input, OnInit, Output} from '@angular/core';
 import {Desenvolvedor} from '../entity/desenvolvedor.entity';
+import {HttpClient} from "@angular/common/http";
 
 @Component({
   selector: 'app-lista-desenvolvedores',
@@ -14,7 +15,9 @@ export class ListaDesenvolvedoresComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() {
+
+  }
 
   emiteEvento(desenvolvedor: Desenvolvedor) {
     this.select.emit(desenvolvedor);

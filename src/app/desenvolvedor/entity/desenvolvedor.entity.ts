@@ -37,4 +37,8 @@ export class Desenvolvedor {
   public getCargo(): string {
     return this.cargo;
   }
+
+  public get tempoFoton(): number {
+    return new Date().getTime() - this.dataAdmissao.getTime();
+  }
 }

@@ -6,6 +6,7 @@ import { SexoPipe } from './pipes/sexo.pipe';
 import { FormDesenvolvedorComponent } from './form-desenvolvedor/form-desenvolvedor.component';
 import {FormsModule} from '@angular/forms';
 import {PaletaModule} from '../paleta/paleta.module';
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   imports: [

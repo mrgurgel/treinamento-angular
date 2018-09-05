@@ -12,9 +12,11 @@ export class FormDesenvolvedorComponent implements OnInit {
   private _externalValue: Desenvolvedor;
   private _value: Desenvolvedor;
 
-  constructor() { }
+  constructor() {
+  }
 
-  ngOnInit() {}
+  ngOnInit() {
+  }
 
   @Input() set value(value: Desenvolvedor) {
     this._externalValue = value;

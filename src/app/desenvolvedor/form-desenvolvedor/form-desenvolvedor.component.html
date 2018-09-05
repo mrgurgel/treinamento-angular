@@ -21,7 +21,7 @@
     <label>Especialidades</label>
     <app-lista-valores #listaValor="ngModel"
                        required name="especialidades"
-                       [appMinLengthArray]="5"
+                        [appMinLengthArray]="5"
                        [(ngModel)]="value.especialidades" >
     </app-lista-valores>
     <span class="error" *ngIf="listaValor.invalid">

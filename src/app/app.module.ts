@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import {DesenvolvedorModule} from './desenvolvedor/desenvolvedor.module';
+import {IntegracaoModule} from "./integracao/integracao.module";
 
 @NgModule({
   declarations: [
@@ -10,6 +11,7 @@ import {DesenvolvedorModule} from './desenvolvedor/desenvolvedor.module';
   ],
   imports: [
     BrowserModule,
+    IntegracaoModule,
     DesenvolvedorModule
   ],
   providers: [],

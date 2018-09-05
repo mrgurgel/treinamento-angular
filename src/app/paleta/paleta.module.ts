@@ -5,14 +5,13 @@ import {FormsModule} from '@angular/forms';
 import { SelectDataComponent } from './select-data/select-data.component';
 import { SelectSexoComponent } from './select-sexo/select-sexo.component';
 import {MinLengthArrayDirective} from './validacao/min-length-array.directive';
-import { DataPassadaDirective } from './validacao/data-passada.directive';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule
   ],
-  declarations: [ListaValoresComponent, SelectDataComponent, SelectSexoComponent, MinLengthArrayDirective, DataPassadaDirective],
-  exports: [ListaValoresComponent, SelectDataComponent, SelectSexoComponent, MinLengthArrayDirective, DataPassadaDirective]
+  declarations: [ListaValoresComponent, SelectDataComponent, SelectSexoComponent, MinLengthArrayDirective],
+  exports: [ListaValoresComponent, SelectDataComponent, SelectSexoComponent, MinLengthArrayDirective]
 })
 export class PaletaModule { }

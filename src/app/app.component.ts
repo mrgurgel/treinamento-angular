@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import {Desenvolvedor} from './desenvolvedor/entity/desenvolvedor.entity';
+import {HttpClient} from "@angular/common/http";
+import {DesenvolvedorService} from "./integracao/desenvolvedor.service";
 
 @Component({
   selector: 'app-root',
@@ -9,36 +11,18 @@ import {Desenvolvedor} from './desenvolvedor/entity/desenvolvedor.entity';
 export class AppComponent {
   desenvolvedor;
 
-  desenvolvedores = [
-    new Desenvolvedor(
-      'Gabriel Silva',
-      'Arquiteto',
-      ['Java', 'Angular'],
-      new Date(2016, 2, 1),
-      0
-    ),
-    new Desenvolvedor(
-      'Jessica Etiene',
-      'Implementadora',
-      ['Java', 'Angular'],
-      new Date(2014, 2, 1),
-      1
-    ),
-    new Desenvolvedor(
-      'Antenor',
-      'Arquiteto',
-      ['Java', 'Angular'],
-      new Date(2015, 2, 1),
-      0
-    ),
-    new Desenvolvedor(
-      'Willian',
-      'Implementador',
-      ['Java', 'Angular'],
-      new Date(2014, 2, 1),
-      0
-    )
-  ];
+  desenvolvedores = [];
+
+  constructor(
+    private desenvolvedorService: DesenvolvedorService
+  ) {
+
+    this.desenvolvedorService.buscaDesenvolvedores()
+      .subscribe(desenvs => {
+        this.desenvolvedores = desenvs;
+      });
+
+  }
 
   desenvolvedorSelecionado(desenvSelecionado) {
     this.desenvolvedor = desenvSelecionado;
