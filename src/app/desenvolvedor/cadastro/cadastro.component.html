@@ -1,12 +1,13 @@
+<br/>
+<h2>Cadastro</h2>
 <form #form="ngForm" (ngSubmit)="submete(form)">
   <div col-6>
     <label>Nome</label>
-    <input maxlength="50" #inputNome="ngModel" name="nome" [(ngModel)]="value.nome" />
+    <input required maxlength="50" #inputNome="ngModel" name="nome" [(ngModel)]="value.nome" />
     <span class="error" *ngIf="inputNome.invalid">
-      <span *ngIf="inputNome.errors.required">Campo obrigatório.</span>
-      <span *ngIf="inputNome.errors.maxlength">Informe no maximo {{inputNome.errors.maxlength}} caracteres.</span>
     </span>
   </div>
+
 
   <div col-6>
     <label>Cargo</label>
@@ -17,11 +18,11 @@
     </span>
   </div>
 
-  <div col-6>
+ <div col-6>
     <label>Especialidades</label>
     <app-lista-valores #listaValor="ngModel"
                        required name="especialidades"
-                        [appMinLengthArray]="5"
+                       [appMinLengthArray]="5"
                        [(ngModel)]="value.especialidades" >
     </app-lista-valores>
     <span class="error" *ngIf="listaValor.invalid">
@@ -54,7 +55,6 @@
       <span *ngIf="selectSexo.errors.required">Campo obrigatório.</span>
     </span>
   </div>
-
 
   <div col-12>
     <button [disabled]="form.invalid" type="submit">Submeter</button>

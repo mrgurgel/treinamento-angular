@@ -12,37 +12,24 @@ export class DesenvolvedorService {
     private httpClient: HttpClient
   ) { }
 
-  /*
-  buscaDesenvolvedores() {
-    return Observable.create(observer => {
+  cadastra(desenvolvedor:Desenvolvedor) {
+    const desenvolvedorVo: DesenvolvedorVo = {
+      nome: desenvolvedor.nome,
+      especialidades: desenvolvedor.especialidades,
+      cargo: desenvolvedor.cargo,
+      dataAdmissao: desenvolvedor.dataAdmissao.toISOString(),
+      sexo: desenvolvedor.sexo
+    };
 
-      this.httpClient.get('http://172.25.0.116:8080/api/desenvolvedor')
-        .subscribe((desenvs: Array<DesenvolvedorVo>) => {
+    console.log("Enviando cadastro do desenvolvedor");
+    console.log(desenvolvedor);
+    console.log(this.httpClient);
 
-          let desenvolvedores: Array<Desenvolvedor> = [];
-
-          for (let desenv of desenvs) {
-            desenvolvedores.push(
-              new Desenvolvedor(
-                desenv.nome,
-                desenv.cargo,
-                desenv.especialidades,
-                new Date(desenv.dataAdmissao),
-                desenv.sexo
-              )
-            );
-          }
-
-          observer.next(desenvolvedores);
-
-        });
-
-    });
-
+    return this.httpClient.post('http://172.25.0.116:8080/api/desenvolvedor', desenvolvedorVo);
   }
-  */
 
   buscaDesenvolvedores() {
+
     return this.httpClient.get('http://172.25.0.116:8080/api/desenvolvedor')
       .pipe(map((desenvs: Array<DesenvolvedorVo>) => {
 

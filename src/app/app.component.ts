@@ -17,11 +17,31 @@ export class AppComponent {
     private desenvolvedorService: DesenvolvedorService
   ) {
 
+
+    this.buscaDesenvolvedores();
+
+  }
+
+  buscaDesenvolvedores() {
     this.desenvolvedorService.buscaDesenvolvedores()
       .subscribe(desenvs => {
         this.desenvolvedores = desenvs;
       });
+  }
 
+  salvaAlteracoes() {
+    this.desenvolvedorService
+      .cadastra(this.desenvolvedor)
+      .subscribe(() => {
+        this.desenvolvedor = undefined;
+        this.buscaDesenvolvedores();
+      }, err => {
+        window.alert(err.error.message);
+      });
+  }
+
+  cadastrarNovo() {
+    this.desenvolvedor = new Desenvolvedor();
   }
 
   desenvolvedorSelecionado(desenvSelecionado) {

@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Desenvolvedor} from '../entity/desenvolvedor.entity';
 import {NgForm} from '@angular/forms';
 
@@ -12,11 +12,11 @@ export class FormDesenvolvedorComponent implements OnInit {
   private _externalValue: Desenvolvedor;
   private _value: Desenvolvedor;
 
-  constructor() {
-  }
+  @Output() formularioSubmetido = new EventEmitter<Desenvolvedor>();
 
-  ngOnInit() {
-  }
+  constructor() { }
+
+  ngOnInit() {}
 
   @Input() set value(value: Desenvolvedor) {
     this._externalValue = value;
@@ -41,6 +41,8 @@ export class FormDesenvolvedorComponent implements OnInit {
       this._externalValue.especialidades = this._value.especialidades;
       this._externalValue.dataAdmissao = this._value.dataAdmissao;
       this._externalValue.sexo = this._value.sexo;
+
+      this.formularioSubmetido.emit(this._externalValue);
 
     }
   }

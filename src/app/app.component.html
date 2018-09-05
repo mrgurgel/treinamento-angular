@@ -4,4 +4,8 @@
 
 <app-form-desenvolvedor
   *ngIf="desenvolvedor"
+  (formularioSubmetido)="salvaAlteracoes()"
   [value]="desenvolvedor"></app-form-desenvolvedor>
+
+<button (click)="cadastrarNovo()">Cadastrar Novo</button>
+

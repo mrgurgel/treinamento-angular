@@ -6,11 +6,11 @@ export class Desenvolvedor {
   dataAdmissao: Date;
 
   constructor(
-    nome: string,
-    cargo: string,
-    especialidades: Array<string>,
-    dataAdmissao: Date,
-    public sexo: number
+    nome?: string,
+    cargo?: string,
+    especialidades?: Array<string>,
+    dataAdmissao?: Date,
+    public sexo?: number
   ) {
     this.nome = nome;
     this.cargo = cargo;

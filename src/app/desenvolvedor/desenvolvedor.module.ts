@@ -7,6 +7,7 @@ import { FormDesenvolvedorComponent } from './form-desenvolvedor/form-desenvolve
 import {FormsModule} from '@angular/forms';
 import {PaletaModule} from '../paleta/paleta.module';
 import {HttpClientModule} from "@angular/common/http";
+import { CadastroComponent } from './cadastro/cadastro.component';
 
 @NgModule({
   imports: [
@@ -18,12 +19,14 @@ import {HttpClientModule} from "@angular/common/http";
     DadosDesenvolvedorComponent,
     ListaDesenvolvedoresComponent,
     SexoPipe,
-    FormDesenvolvedorComponent
+    FormDesenvolvedorComponent,
+    CadastroComponent
   ],
   exports: [
     DadosDesenvolvedorComponent,
     ListaDesenvolvedoresComponent,
-    FormDesenvolvedorComponent
+    FormDesenvolvedorComponent,
+    CadastroComponent
   ]
 })
 export class DesenvolvedorModule { }
